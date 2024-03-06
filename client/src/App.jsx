@@ -10,10 +10,13 @@ import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import Home from "./pages/home";
 import Project from "./pages/project";
+import Header from "./components/header"
 
 function App() {
   return (
     <BrowserRouter>
+
+    <Header/>
       <Routes>
         <Route>
           <Route path="/" element={<Home />} />

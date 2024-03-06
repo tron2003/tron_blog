@@ -7,7 +7,6 @@ export const signup = async (req, res, next) => {
   if (!username || !email || !password || username === "" || email === "") {
     next(errorHandler(400, "All fields are required"));
   }
-  
 
   // var salt = bcrypt.genSaltSync(10);
 

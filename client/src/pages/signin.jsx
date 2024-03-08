@@ -3,7 +3,7 @@ import React from 'react'
 export default function signin() {
   return (
     <div>
-      sing-in
+      sign-in
     </div>
   )
 }

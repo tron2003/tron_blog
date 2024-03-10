@@ -5,7 +5,7 @@ import {
   signInFailure,
   signInStart,
   signInSuccess,
-} from "../redux/user/userslice.js";
+} from "../redux/user/userSlice.js";
 
 import {
   Alert,
@@ -14,6 +14,8 @@ import {
   Spinner,
   TextInput,
 } from "flowbite-react";
+
+import Oauth from "../components/oauth.jsx"
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -96,6 +98,8 @@ export default function SignIn() {
                 "Sign In"
               )}
             </Button>
+
+            <Oauth/>
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Don't have an account?</span>

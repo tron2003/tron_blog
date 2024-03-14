@@ -1,5 +1,5 @@
 import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,6 +8,7 @@ import { signoutSuccess } from "../redux/user/userSlice";
 // import { useDispatch } from "react-redux";
 export default function Header() {
   const path = useLocation().pathname;
+  // const navigate = Navigate()
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
@@ -28,7 +29,6 @@ export default function Header() {
       console.log(error.message);
     }
   };
-
   return (
     <Navbar className="border-b-2">
       <Link

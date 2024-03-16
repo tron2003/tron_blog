@@ -79,15 +79,25 @@ export const deletepost = async (req, res, next) => {
   }
 };
 
-
-// export const deletepost = async (req, res, next) => {
-//   if (!req.user.isAdmin || req.user.id !== req.params.userId) {
-//     return next(errorHandler(403, 'You are not allowed to delete this post'));
-//   }
-//   try {
-//     await Post.findByIdAndDelete(req.params.postId);
-//     res.status(200).json('The post has been deleted');
-//   } catch (error) {
-//     next(error);
-//   }
-// };
+export const updatepost = async (req, res, next) => {
+  if (!req.user.isAdmin || req.user.id !== req.params.userId) {
+    return next(errorHandler(403, "You are not allowed to update this post"));
+  }
+  try {
+    const updatedpost = await Post.findByIdAndUpdate(
+      req.params.postId,
+      {
+        $set: {
+          tile: req.body.title,
+          content: req.body.content,
+          category: req.body.category,
+          image: req.body.image,
+        },
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedpost);
+  } catch (error) {
+    next(error);
+  }
+};

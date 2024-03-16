@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DashBar from "../components/dashsidebar";
 import Profile from "../components/dashprofile";
+import DashPosts from "../components/dashboardpost.jsx"
 
 export default function dashboard() {
   const location = useLocation();
@@ -9,8 +10,8 @@ export default function dashboard() {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const tabfromurl = searchParams.get("tab");
-    if(tabfromurl){
-      setTab(tabfromurl)
+    if (tabfromurl) {
+      setTab(tabfromurl);
     }
   }, [location.search]);
 
@@ -19,14 +20,15 @@ export default function dashboard() {
       {/* sideBar */}
 
       <div>
-
-        
-      <DashBar className="md:w-56"/>
+        <DashBar className="md:w-56" />
       </div>
 
       {/* profile */}
 
       {tab === "profile" && <Profile />}
+
+      {/* posts */}
+      {tab === "posts" && <DashPosts />}
     </div>
   );
 }

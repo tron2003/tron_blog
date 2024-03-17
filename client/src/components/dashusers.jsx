@@ -50,22 +50,17 @@ export default function DashPosts() {
     }
   };
   const handledeleteusers = async () => {
-    setShowModal(false);
     try {
-      const res = await fetch(
-        `/api/user/deleteuser/${UserIdDelete}/${currentUser._id}`,
-        {
-          method: "DELETE",
-        }
-      );
-
+      const res = await fetch(`/api/user/delete/${UserIdDelete}`, {
+        method: 'DELETE',
+      });
       const data = await res.json();
-      if (!res.ok) {
-        console.log(data.message);
-      } else {
-        setUserPosts((prev) =>
-          prev.filter((post) => post._id !== PostIdDelete)
-        );
+      if (res.ok) {
+        setUsers((prev) => prev.filter((user) => user._id !== UserIdDelete));
+        setShowModal(false);
+      }
+      else{
+        console.log(data.message)
       }
     } catch (error) {
       console.log(error.message);
@@ -75,7 +70,7 @@ export default function DashPosts() {
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
       {currentUser.isAdmin && users.length > 0 ? (
         <>
-          <Table hoverable className="shadow-md" >
+          <Table hoverable className="shadow-md">
             <Table.Head>
               <Table.HeadCell>Date Created</Table.HeadCell>
               <Table.HeadCell>User image</Table.HeadCell>
@@ -103,7 +98,13 @@ export default function DashPosts() {
                   </Table.Cell>
                   <Table.Cell>{user.username}</Table.Cell>
                   <Table.Cell>{user.email}</Table.Cell>
-                  <Table.Cell>{user.isAdmin ?(<MdAdminPanelSettings  className="text-green-500"/>):(<FaSkullCrossbones className="text-red-700" />)}</Table.Cell>
+                  <Table.Cell>
+                    {user.isAdmin ? (
+                      <MdAdminPanelSettings className="text-green-500" />
+                    ) : (
+                      <FaSkullCrossbones className="text-red-700" />
+                    )}
+                  </Table.Cell>
                   <Table.Cell>
                     <span
                       onClick={async () => {

@@ -1,4 +1,6 @@
 import React from "react";
+import { FaUsers } from "react-icons/fa";
+import { FaUserAstronaut } from "react-icons/fa";
 import {
   HiArrowSmRight,
   HiDocument,
@@ -14,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function dashsidebar() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const {currentUser} = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   const [tab, setTab] = useState("");
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -48,7 +50,7 @@ export default function dashsidebar() {
           <Link to="/dashboard?tab=profile">
             <Sidebar.Item
               active={tab === "profile"}
-              icon={HiUser}
+              icon={FaUserAstronaut}
               label={currentUser.isAdmin ? "Admin" : "User"}
               labelColor="dark"
               as="div"
@@ -64,6 +66,17 @@ export default function dashsidebar() {
                 as="div"
               >
                 Posts
+              </Sidebar.Item>
+            </Link>
+          )}
+          {currentUser.isAdmin && (
+            <Link to="/dashboard?tab=users" >
+              <Sidebar.Item
+                active={tab === "users"}
+                icon={FaUsers}
+                as="div"
+              >
+                Users
               </Sidebar.Item>
             </Link>
           )}

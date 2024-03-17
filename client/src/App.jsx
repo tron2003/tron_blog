@@ -16,6 +16,7 @@ import PrivateRoute from "./components/privateroute";
 import PrivateAdmin from  "./components/admin" 
 import CreatePost from "./pages/creatpost";
 import UpdatePost from "./pages/updatepost";
+import PostPage from "./pages/postpage";
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +37,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/projects" element={<Project />} />
+          <Route path="/post/:postslug" element={<PostPage/>}></Route>
         </Route>
       </Routes>
       <Footer />

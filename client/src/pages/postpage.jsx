@@ -10,6 +10,7 @@ export default function postpage() {
   useEffect(() => {
     // console.log(postSlug)
     const fetchPosts = async () => {
+      
       try {
         setLoading(true);
 

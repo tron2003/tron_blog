@@ -13,13 +13,15 @@ import Project from "./pages/project";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import PrivateRoute from "./components/privateroute";
-import PrivateAdmin from  "./components/admin" 
+import PrivateAdmin from "./components/admin";
 import CreatePost from "./pages/creatpost";
 import UpdatePost from "./pages/updatepost";
 import PostPage from "./pages/postpage";
+import ScrolToTop from "./components/scrollbar";
 function App() {
   return (
     <BrowserRouter>
+      <ScrolToTop />
       <Header />
       <Routes>
         <Route>
@@ -32,12 +34,11 @@ function App() {
           <Route element={<PrivateAdmin />}>
             <Route path="/create-post" element={<CreatePost />} />
             <Route path="/update-post/:postId" element={<UpdatePost />} />
-
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/projects" element={<Project />} />
-          <Route path="/post/:postSlug" element={<PostPage/>}></Route>
+          <Route path="/post/:postSlug" element={<PostPage />}></Route>
         </Route>
       </Routes>
       <Footer />

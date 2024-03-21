@@ -37,7 +37,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/projects" element={<Project />} />
-          <Route path="/post/:postslug" element={<PostPage/>}></Route>
+          <Route path="/post/:postSlug" element={<PostPage/>}></Route>
         </Route>
       </Routes>
       <Footer />

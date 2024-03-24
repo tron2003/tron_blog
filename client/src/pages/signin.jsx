@@ -5,7 +5,7 @@ import {
   signInFailure,
   signInStart,
   signInSuccess,
-} from "../redux/user/userSlice.js";
+} from "../redux/user/userslice.js";
 
 import {
   Alert,

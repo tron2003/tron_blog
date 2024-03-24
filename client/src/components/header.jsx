@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
-import { signoutSuccess } from "../redux/user/userSlice";
+import { signoutSuccess } from "../redux/user/userslice";
 import { useEffect, useState } from "react";
 import search from "../pages/search";
 // import { useDispatch } from "react-redux";

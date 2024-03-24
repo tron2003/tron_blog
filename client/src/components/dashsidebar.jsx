@@ -12,7 +12,7 @@ import {
 import { Sidebar, SidebarItem } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { signoutSuccess } from "../redux/user/userSlice";
+import { signoutSuccess } from "../redux/user/userslice";
 import { useDispatch, useSelector } from "react-redux";
 // import { useSelector } from "react-redux";
 export default function dashsidebar() {

@@ -2,7 +2,9 @@ import React from "react";
 import { FaUsers } from "react-icons/fa";
 import { FaUserAstronaut } from "react-icons/fa";
 import {
+  HiAnnotation,
   HiArrowSmRight,
+  HiChartPie,
   HiDocument,
   HiDocumentText,
   HiUser,
@@ -47,6 +49,18 @@ export default function dashsidebar() {
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
         <Sidebar.ItemGroup className="flex flex-col gap-1">
+          {currentUser && currentUser.isAdmin && (
+            <Link to="/dashboard?tab=dash">
+              <Sidebar.Item
+                active={tab === "dash"||!tab}
+                icon={HiChartPie}
+                as="div"
+              >
+                Dashboard
+              </Sidebar.Item>
+
+            </Link>
+          )}
           <Link to="/dashboard?tab=profile">
             <Sidebar.Item
               active={tab === "profile"}
@@ -70,17 +84,23 @@ export default function dashsidebar() {
             </Link>
           )}
           {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=users" >
-              <Sidebar.Item
-                active={tab === "users"}
-                icon={FaUsers}
-                as="div"
-              >
-                Users
-              </Sidebar.Item>
-            </Link>
+            <>
+              <Link to="/dashboard?tab=users">
+                <Sidebar.Item active={tab === "users"} icon={FaUsers} as="div">
+                  Users
+                </Sidebar.Item>
+              </Link>
+              <Link to="/dashboard?tab=comments">
+                <Sidebar.Item
+                  active={tab === "comments"}
+                  icon={HiAnnotation}
+                  as="div"
+                >
+                  Comments
+                </Sidebar.Item>
+              </Link>
+            </>
           )}
-
           <Sidebar.Item
             icon={HiArrowSmRight}
             className="cursor-pointer"

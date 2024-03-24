@@ -18,6 +18,7 @@ import CreatePost from "./pages/creatpost";
 import UpdatePost from "./pages/updatepost";
 import PostPage from "./pages/postpage";
 import ScrolToTop from "./components/scrollbar";
+import Search from "./pages/search";
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
+          <Route path="/search" element={<Search />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>

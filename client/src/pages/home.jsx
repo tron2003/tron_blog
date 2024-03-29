@@ -17,17 +17,28 @@ export default function home() {
 
   return (
     <div>
-      <div className=" flex flex-col gap-7 lg:p-28 max-w-6xl px-3 mx-auto ">
-        <h1 className="text-3xl  font-bold lg:text-6xl">Welcome to my Blog</h1>
+      <div className=" flex flex-col gap-5 lg:p-28 max-w-6xl px-3 mx-auto ">
+        <h1 className="text-3xl  font-bold text-slate-700 lg:text-6xl">
+          Welcome to my Blog
+        </h1>
 
-        <p className="text-gray-500 text-xs sm:text-sm ">
-          vsdvdsdssdddddddddddddddddddddcx csdv sdds asd dfs df fdfdfd df dfbh
-          dfdf fgfd gfd f ddfd df f fdg dsfgf gdfs dg fg
-          fdfddsfffasdfasfdsfvdzvdae f dva fd sd fAd DFSfd
+        <p className="text-emerald-700 text-sm sm:text-md ">
+          Step into a world where curiosity knows no bounds, and every click
+          unveils a new adventure.
+        </p>
+        <p className="text-emerald-700 text-sm sm:text-md">
+          Welcome , where imagination meets enlightenment and
+          every page turn sparks inspiration. From the latest trends to timeless
+          wisdom, we're your passport to a universe of captivating stories,
+          thought-provoking insights, and endless possibilities. Join our
+          community of seekers, dreamers, and doers as we journey through the
+          exhilarating landscapes of discovery. Get ready to ignite your
+          imagination and embark on an electrifying exploration unlike any
+          other!
         </p>
         <Link
           to="/search"
-          className="text-xs sm:text-sm text-teal-500 font-bold hover:underline"
+          className="text-xs sm:text-sm text-sky-600 font-bold hover:underline"
         >
           View ALL
         </Link>
